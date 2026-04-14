@@ -85,12 +85,18 @@ messages = [
     {
         "role": "user",
         "content": (
-            "You are a skill extraction assistant.\n"
-            "I will provide you a resume and a job description.\n"
-            "ONLY return a comma-separated list of skills from the resume that match or are relevant to the job description.\n\n"
-            f"Resume:\n{resume_text}\n\n"
-            f"Job Description:\n{job_description}"
-        )
+        "Extract relevant skills from the resume based on the job description.\n"
+        "Return ONLY a comma-separated list.\n"
+        "Do NOT return explanations.\n"
+        "Do NOT return empty output.\n\n"
+        "Focus on:\n"
+        "- Programming languages\n"
+        "- Tools and libraries\n"
+        "- Machine learning frameworks\n"
+        "- Data-related skills\n\n"
+        f"Resume:\n{resume_text}\n\n"
+        f"Job Description:\n{job_description}"
+)
     }
 ]
 
@@ -102,5 +108,6 @@ response = chat(
 )
 
 # ----- Print the skills -----
+print(response)
 print("Extracted Skills:\n")
 print(response.message.content)
