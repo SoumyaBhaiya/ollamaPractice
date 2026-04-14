@@ -22,7 +22,7 @@ def read_pdf(file_path: str) -> str:
     return text
 
 # ----- Load resume -----
-resume_path = "resume.pdf"
+resume_path = "SoumyaResume.pdf"
 job_description = """ Job description
 AI Transformation Engineer (Mon-Fri 8:00am-4:30pm)
 
@@ -96,9 +96,8 @@ messages = [
 
 # ----- Call Ollama -----
 response = chat(
-    model="qwen3",
+    model="llama3.2:3b",
     messages=messages,
-    tools=[extract_skills],  # Model can call it if it wants
     think=False  # Safe on low-powered computers
 )
 
